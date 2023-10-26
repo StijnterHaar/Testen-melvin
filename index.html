@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Hypotheek Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <h1>Hypotheek Calculator</h1>
+      <label for="inkomen">Jaarinkomen:</label>
+      <input type="number" id="inkomen" placeholder="Voer uw jaarinkomen in" />
+
+      <label for="partnerInkomen"
+        >Jaarinkomen van de partner (indien van toepassing):</label
+      >
+      <input
+        type="number"
+        id="partnerInkomen"
+        placeholder="Voer het jaarinkomen van de partner in"
+      />
+
+      <label for="hypotheekPeriode">Selecteer Hypotheekperiode:</label>
+      <select id="hypotheekPeriode">
+        <option value="1">1 jaar</option>
+        <option value="5">5 jaar</option>
+        <option value="10">10 jaar</option>
+        <option value="15">15 jaar</option>
+        <option value="20">20 jaar</option>
+        <option value="30">30 jaar</option>
+      </select>
+
+      <label for="postcode">Voer Postcode in:</label>
+      <input type="text" id="postcode" placeholder="Voer uw postcode in" />
+
+      <button
+        onclick="berekenHypotheek(
+        parseFloat(document.getElementById('inkomen').value),
+        parseFloat(document.getElementById('partnerInkomen').value),
+        parseInt(document.getElementById('hypotheekPeriode').value),
+        document.getElementById('postcode').value
+      )"
+      >F
+        Bereken Hypotheek
+      </button>
+
+      <div id="resultaten">
+        <h2>Resultaten</h2>
+        <p>Maximale Leenbedrag: <span id="maxLeenBedrag"></span></p>
+        <p>Maandelijkse Betaling: <span id="maandelijkseBetaling"></span></p>
+        <p>Totaalbedragen: <span id="totaalBedragen"></span></p>
+      </div>
+    </div>
+
+    <script src="script.mjs"></script>
+  </body>
+</html>
